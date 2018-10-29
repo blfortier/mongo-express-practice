@@ -29,7 +29,8 @@ const StockSchema = new Schema ({
         default: Date.now
     },
     timesSearched: {
-        type: Number
+        type: Object
+        // date and time searched, object array of count/timestamps
     },
     largestSharesBought: {
         type: Number,
@@ -37,16 +38,19 @@ const StockSchema = new Schema ({
         // or excluded from query results by default
         select: true
     },
+    largestSharesBoughtDate: {
+        type: Date
+    },
     smallestSharesBought: {
         type: Number,
         select: true
     },
+    smallestSharesBoughtDate: {
+        type: Date
+    },
     timeSharesOwned: {
-        type: "function(){dateBought - Date.now}"
+        type: 
     }
-    
-    
-    
 });
 
 module.exports = Stock = mongoose.model('stocks', StockSchema);
