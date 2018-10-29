@@ -6,13 +6,9 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
-  /*  age: {
-        type: Number,
-        
-    }
-    */
     password: {
         type: String,
         required: true

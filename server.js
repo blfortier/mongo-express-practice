@@ -1,8 +1,10 @@
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');  // body-parser = parsing middleware 
 
+const app = express();
+
+// middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -15,10 +17,11 @@ mongoose
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.log(err));
 
+const users = require('./routes/api/users');
+
+app.use('/api/users', users);
+
 app.get('/', (req, res) => res.send('Hello'));
-
-
-
 
 
 const port = process.env.PORT || 5000;
