@@ -19,7 +19,7 @@ const StockSchema = new Schema ({
       required: true
     },
     shareHolders: {
-      type: [String]  
+      type: [{firstName:String, lastName: String}]  
     },
     avgVolume: {
       type: Number,  
