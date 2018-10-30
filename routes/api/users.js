@@ -12,8 +12,8 @@ router.get('/', (req, res) => {
         res.json(users);
     })
     .catch(err => {
-        res.status(500).json({ status: "error", message: err})
-    })
+        res.status(500).json({ status: "error", message: err});
+    });
 });
 
 // url: {root}/api/users/{name}
@@ -21,11 +21,11 @@ router.get('/:name', (req, res) => {
     const { name } = req.params;
     User.findOne({ name })
         .then(user => {
-            res.json(user)
+            res.json(user);
         })
         .catch(err => {
-            res.status(500).json({ status: "error", message: err})
-        })
+            res.status(500).json({ status: "error", message: err});
+        });
 });
 
 
@@ -54,13 +54,13 @@ router.delete('/:name', (req, res) => {
     //TODO: add validation that the logged
     // in user is the name
    const { name } = req.params;
-    User.findOne({ name })
+   User.findOne({ name })
         .then(user => {
             user.remove()
             .then(() => res.status(204).json({}))
             .catch(err => {
                 res.status(500).json({ status: "error",  message: err});
-            })
+            });
         })
         .catch(err => {
             res.status(500)
@@ -70,32 +70,8 @@ router.delete('/:name', (req, res) => {
         }); 
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// create a new model profiles with 4 attributes name, password, about me, age (one doesnt need to be required)
+// create new router -- CRUD
 
 
 
